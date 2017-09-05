@@ -406,6 +406,7 @@ class TestCreateAccount(SiteMixin, TestCase):
                 UserAttribute.get_user_attribute(user, REGISTRATION_UTM_CREATED_AT)
             )
 
+            
 @ddt.ddt
 class TestCreateAccountValidation(TestCase):
     """
