@@ -170,7 +170,12 @@ class StaticContentServer(object):
 
             # "Accept-Ranges: bytes" tells the user that only "bytes" ranges are allowed
             response['Accept-Ranges'] = 'bytes'
-            response['Content-Type'] = content.content_type
+
+            #  Append 'charset=utf-8' to various content types
+            if content.content_type in ['text/html', 'text/css', 'text/javascript', 'application/javascript']:
+                response['Content-Type'] = content.content_type + '; charset=utf-8'
+            else:
+                response['Content-Type'] = content.content_type
 
             # Set any caching headers, and do any response cleanup needed.  Based on how much
             # middleware we have in place, there's no easy way to use the built-in Django
