@@ -172,10 +172,10 @@ class StaticContentServer(object):
             response['Accept-Ranges'] = 'bytes'
 
             #  Append 'charset=utf-8' to various content types
-            if content.content_type in ['text/html', 'text/css', 'text/javascript', 'application/javascript']:
+            #if content.content_type in ['text/html', 'text/css', 'text/javascript', 'application/javascript']:
                 response['Content-Type'] = content.content_type + '; charset=utf-8'
-            else:
-                response['Content-Type'] = content.content_type
+            #else:
+            #    response['Content-Type'] = content.content_type
 
             # Set any caching headers, and do any response cleanup needed.  Based on how much
             # middleware we have in place, there's no easy way to use the built-in Django
