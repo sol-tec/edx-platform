@@ -842,7 +842,7 @@ class VideoDescriptor(VideoFields, VideoTranscriptsMixin, VideoStudioViewHandler
                 )[0].replace("\n", " ")
                 transcript_index_name = "transcript_{}".format(language if language else self.transcript_language)
                 video_body.update({transcript_index_name: transcript})
-            except NotFoundError:
+            except Exception:
                 pass
 
         if self.sub:
